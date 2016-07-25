@@ -27,3 +27,10 @@ test.templates_can_apply_formatted_text_with_repeated_place_holders = function()
 	template = new t.Template('1 is good to eat with 0. But, I would rather prefer 1 without 0 on it. 0 is too 2!');
 	assert.equal(template.apply(bag),'bread is good to eat with jam. But, I would rather prefer bread without jam on it. jam is too sweet!');
 };
+
+test.templates_can_be_applied_on_objects = function(){
+	var students = [{name:'Ramu',place:'Bangalore'},{name:'Mamu',place:'Andheri'},{name:'Hemu',place:'Aligarh'}];
+	var template = new t.Template('Hello name, how is place?');
+	var texts = students.map(template.apply);
+	assert.deepEqual(texts,['Hello Ramu, how is Bangalore?','Hello Mamu, how is Andheri?','Hello Hemu, how is Aligarh?']);
+};
