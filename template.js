@@ -10,11 +10,10 @@ var applyTemplate = function(sentence, bag){
 }
 
 t.Template = function(sentence){
-	this.sentence = sentence;
 
 	Object.defineProperty(this, "apply", {
 		"value" : function(bag){
-			return applyTemplate(this.sentence, bag)
+			return applyTemplate(sentence, bag)
 		}
 	})
 }
