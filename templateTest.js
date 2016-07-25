@@ -34,3 +34,8 @@ test.templates_can_be_applied_on_objects = function(){
 	var texts = students.map(template.apply);
 	assert.deepEqual(texts,['Hello Ramu, how is Bangalore?','Hello Mamu, how is Andheri?','Hello Hemu, how is Aligarh?']);
 };
+
+test.templates_dont_have_any_fields = function(){
+	var template = new t.Template('Hello name, how is place?');
+	assert.equal(0,Object.keys(template).length);
+};
