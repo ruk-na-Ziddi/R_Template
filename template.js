@@ -4,9 +4,12 @@ exports.t = t;
 var applyTemplate = function(sentence, bag){
 	var keys = Object.keys(bag);
 
-	return sentence.split("").map(function(word){
-		return (keys.indexOf(word) > -1) ? bag[word] : word;
-	}).join("");
+	keys.forEach(function(key){
+		var regex = new RegExp(key, 'g');
+		sentence = sentence.replace(regex, bag[key]);
+	})
+
+	return sentence;
 }
 
 t.Template = function(sentence){
