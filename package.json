@@ -1,0 +1,11 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "r.template rewrite",
+  "main": "template.js",
+  "scripts": {
+    "test": "node runTest.js templateTest.js"
+  },
+  "author": "ankurks@thoughtworks.com",
+  "license": "ISC"
+}
