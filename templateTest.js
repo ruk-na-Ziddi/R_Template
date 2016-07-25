@@ -18,3 +18,12 @@ test.templates_can_be_used_to_prepare_formatted_text_named_place_holder = functi
 	var bag = {first_person:'Peter',second_person:'Jane'};
 	assert.equal(template.apply(bag),'hello Jane, how are you? My name is Peter');
 };
+
+test.templates_can_apply_formatted_text_with_repeated_place_holders = function(){
+	var template = new t.Template('0, 0, 0, Where are you?');
+	var bag = ['Jimmy'];
+	assert.equal(template.apply(bag),'Jimmy, Jimmy, Jimmy, Where are you?');
+	bag = ['jam','bread','sweet'];
+	template = new t.Template('1 is good to eat with 0. But, I would rather prefer 1 without 0 on it. 0 is too 2!');
+	assert.equal(template.apply(bag),'bread is good to eat with jam. But, I would rather prefer bread without jam on it. jam is too sweet!');
+};
